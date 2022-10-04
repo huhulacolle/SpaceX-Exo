@@ -1,3 +1,5 @@
+import { Capsule } from './../../models/capsule';
+import { SpaceXApiService } from './../../services/space-xapi.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeCapsulesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private spacexApiService: SpaceXApiService
+  ) { }
+
+  capsules: Capsule[] = []
 
   ngOnInit(): void {
+    this.getAllCapsule();
+  }
+
+  getAllCapsule(): void {
+    this.spacexApiService.getAllCapsule()
+    .subscribe({
+      next: (data) => this.capsules = data,
+      error: (error) => console.error(error)
+    })
   }
 
 }
