@@ -1,1 +1,45 @@
-<p>see-launches works!</p>
+<div class="container">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Flight number</th>
+          <th scope="col">Mission name</th>
+          <th scope="col">Upcoming</th>
+          <th scope="col">original_launch</th>
+          <th scope="col">Tentative</th>
+          <th scope="col">Succes</th>
+          <th scope="col">Details</th>
+          <th scope="col">TBD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let launch of launches">
+          <td>
+            {{launch.flight_number}}
+          </td>
+          <td>
+            {{launch.mission_name}}
+          </td>
+          <td>
+            {{launch.upcoming}}
+          </td>
+          <td>
+            {{launch.launch_date_local | date: 'dd/MM/yyyy'}}
+          </td>
+          <td>
+            {{launch.is_tentative}}
+          </td>
+          <td>
+            {{launch.launch_success}}
+          </td>
+          <td>
+            {{launch.details}}
+          </td>
+          <td>
+            {{launch.tbd}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
