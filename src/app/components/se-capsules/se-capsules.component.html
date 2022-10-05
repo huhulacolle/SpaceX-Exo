@@ -15,7 +15,9 @@
     <tbody>
       <tr *ngFor="let capsule of capsules">
         <td>
-          {{capsule.capsule_serial}}
+          <a routerLink="/see-detail/{{capsule.capsule_serial}}">
+            {{capsule.capsule_serial}}
+          </a>
         </td>
         <td>
           {{capsule.capsule_id}}
