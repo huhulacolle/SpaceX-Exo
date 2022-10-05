@@ -18,7 +18,7 @@ import { DetailCapsComponent } from './components/detail-caps/detail-caps.compon
     DetailCapsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule
   ],
