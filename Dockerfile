@@ -1,15 +1,14 @@
 # stage 1
 
-FROM node:alpine AS my-app-build
+FROM node:14-slim AS my-app-build
 WORKDIR /app
 
 COPY package.json ./
 RUN npm i
 COPY . .
-RUN npm run build
+RUN npm run build:ssr
 
 # stage 2
 
-FROM nginx:alpine
-COPY --from=my-app-build /app/dist/space-x-exo /usr/share/nginx/html
-EXPOSE 80
+CMD ["node", "/app/dist/SpaceX-Exo/server/main.js"]
+EXPOSE 4000
