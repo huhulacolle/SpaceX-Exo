@@ -2,37 +2,41 @@
   <table class="table table-dark table-striped">
     <thead>
       <tr>
-        <th scope="col">capsule_serial</th>
-        <th scope="col">capsule_id</th>
-        <th scope="col">status</th>
-        <th scope="col">original_launch</th>
-        <th scope="col">mission</th>
-        <th scope="col">laundigs</th>
-        <th scope="col">type</th>
+        <th scope="col">Id</th>
         <th scope="col">reuse_count</th>
+        <th scope="col">water_landings</th>
+        <th scope="col">land_landings</th>
+        <th scope="col">last_update</th>
+        <th scope="col">launches</th>
+        <th scope="col">serial</th>
+        <th scope="col">status</th>
+        <th scope="col">type</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let capsule of capsules">
         <td>
-          <a routerLink="/see-detail/{{capsule.capsule_serial}}">
-            {{capsule.capsule_serial}}
+          <a routerLink="/see-detail/{{capsule.id}}">
+            {{capsule.id}}
           </a>
         </td>
         <td>
-          {{capsule.capsule_id}}
+          {{capsule.reuse_count}}
+        </td>
+        <td>
+          {{capsule.water_landings}}
+        </td>
+        <td>
+          {{capsule.land_landings}}
+        </td>
+        <td>
+          {{capsule.last_update}}
+        </td>
+        <td>
+          {{capsule.serial}}
         </td>
         <td>
           {{capsule.status}}
-        </td>
-        <td>
-          {{capsule.original_launch | date: 'dd/MM/yyyy'}}
-        </td>
-        <td>
-          {{capsule.mission}}
-        </td>
-        <td>
-          {{capsule.laundigs}}
         </td>
         <td>
           {{capsule.type}}
